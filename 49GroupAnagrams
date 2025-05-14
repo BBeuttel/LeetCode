@@ -1,0 +1,15 @@
+
+var groupAnagrams = function(strs) {
+    //create a new instantion of map
+    const map = new Map();
+//iterate through string
+    for (const word of strs) {
+        const key = word.split('').sort().join('');
+        if (!map.has(key)) {
+            map.set(key, []);
+        }
+        map.get(key).push(word);
+    }
+
+    return Array.from(map.values());
+}
